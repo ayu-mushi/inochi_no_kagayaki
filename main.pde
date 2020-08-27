@@ -43,11 +43,13 @@ class Cell{
     already_reproduced = true;
     PVector child_x = position.x + width*0.6*cos(degree);
     PVector child_y = position.y + height*0.6*sin(degree);
+    PVector child_width = random(10,50);
+    PVector child_h_by_w_ratio = random(0.44,2.3);
     if(random(0,10)<1){
-      child = new EyedCell(child_x, child_y, width, h_by_w_ratio, degree+ degrees(0.003));
+      child = new EyedCell(child_x, child_y, child_width, child_h_by_w_ratio, degree+ degrees(0.003));
 
     } else{
-      child = new Cell(child_x, child_y, width, h_by_w_ratio, degree+ degrees(0.003));
+      child = new Cell(child_x, child_y, child_width, child_h_by_w_ratio, degree+ degrees(0.003));
     }
     return [child];
     // アスペクト比の変化に応じた子の場所の変化

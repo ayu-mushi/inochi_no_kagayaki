@@ -35,6 +35,8 @@ class Cell{
   }
 
 //生殖時に他のにぶつかったらそいつを子として認識する
+//そうすると、末尾が先頭を子として認識する丸パターン以外にも、突然ぶつかってきたやつに子として認識されるパターンが出てくる
+
   Cell[] reproduce(){// child のheight, widthが分からないと接触するようにつくれない
   // または始点を原点以外に
     if(already_reproduced) return [];
@@ -116,6 +118,7 @@ void draw(){
   }
 }
 // 消すときも番号は保ったままにすれば番号=生物とできるのではないか
+// 末尾のやつが消えてnullになっていることともともとnullなことを区別する必要が
 
 void mousePressed(){
   PVector mPos = new PVector(mouseX, mouseY);
